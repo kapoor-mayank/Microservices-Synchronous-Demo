@@ -2,8 +2,10 @@ package com.example.services;
 
 import com.example.entities.Quiz;
 import com.example.repositories.QuizRepository;
-import com.example.services.QuestionClient;
+//import com.example.services.QuestionClient;
 import com.example.services.QuizService;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,15 +13,10 @@ import java.util.stream.Collectors;
 
 @Service
 public class QuizServiceImpl implements QuizService {
-
+	@Autowired
     private QuizRepository quizRepository;
-
-    private QuestionClient questionClient;
-
-    public QuizServiceImpl(QuizRepository quizRepository, QuestionClient questionClient) {
-        this.quizRepository = quizRepository;
-        this.questionClient = questionClient;
-    }
+	@Autowired
+   	private QuestionClient questionClient;
 
     @Override
     public Quiz add(Quiz quiz) {
